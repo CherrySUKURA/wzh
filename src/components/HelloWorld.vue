@@ -17,19 +17,53 @@ export default {
       myChart.setOption({
         title: { text: "杭州未来一个星期天气走势" },
         tooltip: {
-            
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)"
         }, //提示框
         series: [
           {
-               type: 'pie',
-                data: [
-                    {name: 'A', value: 1212},
-                    {name: 'B', value: 2323},
-                    {name: 'C', value: 1919}
-                ]
+            type: "pie",
+            data: [
+              {
+                name: this.tableData[0].name,
+                value: this.tableData[0].zip
+              },
+              {
+                name: this.tableData[1].name,
+                value: this.tableData[1].zip
+              },
+              {
+                name: this.tableData[2].name,
+                value: this.tableData[2].zip
+              },
+              {
+                name: this.tableData[3].name,
+                value: this.tableData[3].zip
+              },
+              {
+                name: this.tableData[4].name,
+                value: this.tableData[4].zip
+              },
+              {
+                name: this.tableData[5].name,
+                value: this.tableData[5].zip
+              },
+              {
+                name: this.tableData[6].name,
+                value: this.tableData[6].zip
+              }
+            ]
           }
         ]
       });
+    }
+  },
+  props: {
+    tableData: {
+      type: Array,
+      default: function() {
+        return [];
+      }
     }
   }
 };
